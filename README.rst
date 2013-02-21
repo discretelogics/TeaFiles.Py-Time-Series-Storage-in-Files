@@ -27,7 +27,7 @@ Exchange Time Series across  Applications / Operating Systems
 TeaFiles have a simple file layout, they contain raw binary data after a header that optionally holds metadata.
 APis abstract the header layout and make file creation as simple as
 
->>> tf = TeaFile.create("acme.tea", "Time Price Volume", "qdq", "ACME at NYSE", {"decimals": 2, "url": "www.acme.com" })
+>>> tf = TeaFile.create("acme.tea", "Time Price Volume", "qdq", "ACME at NYSE", {"decimals": 2, "url": "acme.com" })
 
 At the moment, APIs exist for 
 
