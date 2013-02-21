@@ -1,12 +1,13 @@
-TeaFiles.Py - Time Series Storage in Files
-==========================================
 
-Use TeaFiles.Py to create, read and write files holding time series data.
+
+Time Series Peristence
+======================
+This Python package provides Time Series storage in flat files according to the **TeaFile** file format.
+
 
 In Use
 ======
 
-```Python
 >>> tf = TeaFile.create("acme.tea", "Time Price Volume", "qdq", "ACME at NYSE", {"decimals": 2, "url": "www.acme.com" })
 >>> tf.write(DateTime(2011, 3, 4,  9, 0), 45.11, 4500)
 >>> tf.write(DateTime(2011, 3, 4, 10, 0), 46.33, 1100)
@@ -19,21 +20,20 @@ TPV(Time=2011-03-04 09:00:00:000, Price=45.11, Volume=4500)
 TPV(Time=2011-03-04 10:00:00:000, Price=46.33, Volume=1100)
 >>> tf.read()
 >>> tf.close()
-```
 
-Exchange Time Series between Applications and Operating Systems
-===============================================================
 
+Exchange Time Series between Apps / OS
+======================================
 You can create, read and write TeaFiles with
 
+- R,
 - C++,
-- C#,
-- R or
-- any application 
+- C# or
+- other applications
 
 on
 
-- Linux / Unix
+- Linux, Unix,
 - Mac OS
 - Windows
 
@@ -57,9 +57,6 @@ Matlab, running on Linux, Unix, Mac OS X or Windows.
 
 link to spec http://tbd
 
-Documentation
-=============
-http://discretelogics.com/PythonAPI/
 
 Scope of the Python API
 =======================

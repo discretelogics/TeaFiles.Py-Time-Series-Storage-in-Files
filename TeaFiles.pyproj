@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f7fdc9f6-8a85-47f6-85dc-b48380a978ca}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>teafiles\teafile.py</StartupFile>
+    <SearchPath>.</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>TeaFiles</Name>
+    <RootNamespace>PythonApplication1</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>2af0f10d-7135-4994-9156-5d01c9c11b7e</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments />
+    <InterpreterPath />
+    <DebugStdLib>False</DebugStdLib>
+    <InterpreterArguments>
+    </InterpreterArguments>
+    <InterpreterVersion>2.7</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="doc\conf.py" />
+    <Compile Include="doc\interactive.rst" />
+    <Compile Include="examples.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="stopwatch.py" />
+    <Compile Include="teafiles\clockwise.py" />
+    <Compile Include="teafiles\teafile.py" />
+    <Compile Include="teafiles\__init__.py" />
+    <Compile Include="test\test_examples.py" />
+    <Compile Include="test\test_timeutils.py" />
+    <Compile Include="test\test_teafile.py" />
+    <Compile Include="doc\dtheme\static\default.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="doc" />
+    <Folder Include="doc\dtheme\" />
+    <Folder Include="doc\dtheme\static\" />
+    <Folder Include="teafiles" />
+    <Folder Include="test" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="doc\dtheme\static\basic.css" />
+    <Content Include="doc\dtheme\static\pygments.css" />
+    <Content Include="doc\examples.rst" />
+    <Content Include="doc\teafiles.rst" />
+    <Content Include="doc\clockwise.rst" />
+    <Content Include="doc\index.rst" />
+    <Content Include="License.txt" />
+    <Content Include="pylintrc" />
+    <Content Include="README.rst" />
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

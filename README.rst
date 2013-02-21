@@ -3,10 +3,10 @@ TeaFiles.Py - Time Series Storage in Files
 
 Use TeaFiles.Py to create, read and write files holding time series data.
 
+
 In Use
 ======
 
-```Python
 >>> tf = TeaFile.create("acme.tea", "Time Price Volume", "qdq", "ACME at NYSE", {"decimals": 2, "url": "www.acme.com" })
 >>> tf.write(DateTime(2011, 3, 4,  9, 0), 45.11, 4500)
 >>> tf.write(DateTime(2011, 3, 4, 10, 0), 46.33, 1100)
@@ -19,19 +19,24 @@ TPV(Time=2011-03-04 09:00:00:000, Price=45.11, Volume=4500)
 TPV(Time=2011-03-04 10:00:00:000, Price=46.33, Volume=1100)
 >>> tf.read()
 >>> tf.close()
-```
 
-Exchange Time Series between Applications and Operating Systems
-===============================================================
 
-You can create, read and write TeaFiles with
+Exchange Time Series between Applications / Operating Systems
+=============================================================
+
+TeaFiles have a simple file layout, they contain raw binary data after a header that optionally holds metadata.
+APis abstract the header layout and make file creation as simple as
+
+>>> tf = TeaFile.create("acme.tea", "Time Price Volume", "qdq", "ACME at NYSE", {"decimals": 2, "url": "www.acme.com" })
+
+At the moment, APIs exist for 
 
 - C++,
 - C#,
-- R or
-- any application 
+- Python (this one)
+- other APis are planned and in draft phase (R, Octave/Matlab)
 
-on
+TeaFiles can be access from any operating system, like
 
 - Linux / Unix
 - Mac OS
@@ -40,26 +45,20 @@ on
 
 Python API Examples
 ===================
-- programs        http://discretelogics.com/PythonAPI/examples.html
-- interactive     http://discretelogics.com/PythonAPI/interactive.html
+- programs        http://www.discretelogics.com/doc/teafiles.py/examples.html
+- interactive     http://www.discretelogics.com/doc/teafiles.py/interactive.html
 - examples.py (available in the package source)
 
 
 TeaFiles
 ========
-TeaFiles are a very **simple**, yet highly **efficient**, way to store time series data 
-providing data exchange between programs written in C++, C# or applications like R, Octave, 
-Matlab, running on Linux, Unix, Mac OS X or Windows.
+Find more about TeaFiles at http://www.discretelogics.com/products/teafiles
 
-- **Binary** data composed from elementary data types **signed and unsigned integers, double and float** in IEEE 754 format is prefixed by a **header** holding a description of the item structure and the content.
-- Data can be directly accessed via **memory mapping**. 
-- TeaFiles are **self describing**: Containing a description of the item structure they relieve opaqueness of straight binary files. Knowing that a file is a TeaFile is enough to access its data.
-
-link to spec http://tbd
 
 Documentation
 =============
-http://discretelogics.com/PythonAPI/
+http://www.discretelogics.com/doc/teafiles.py/
+
 
 Scope of the Python API
 =======================
@@ -81,20 +80,24 @@ of a TeaFile:
     AXP.day.tea 2 American Express Co.
     ...
 
-Data download from web services is also a good fit. See the examples.py file in the package source for a Yahoo finance download function in about 30 lines.
+Data download from web services for instance is a good fit. See the examples.py file in the package source for a Yahoo finance download function in about 30 lines.
 
 
 Limitations
 ===========
-When it comes to high performance processing of very large time series files, this API is currently not as fast as the C++ and C# APIs (Numbers coming soon on http://tbd). There are numerous ways to improve this if necessary, but no current plans at discretelogics to do so. Using the other languages/APIs is recommended. If you wish the Python API to be faster or want to work on that contact us.
+When it comes to high performance processing of very large time series files, this API is currently not as fast as the C++ and C# APIs. 
+There are numerous ways to improve this if necessary, but no current plans at discretelogics to do so. Use of other languages/APIs is recommended. 
+If you intend to make this Python API faster contact us we should be able to identify points of potential speed enhancements.
 
 
 Installation
 ============
 
+The package is hosted on PyPi, so installation goes by
+
 **$ pip install teafiles**
 
-package source with examples.py at http://bitbucket.org/discretelogics/teafiles.py
+package source with examples.py at https://github.com/discretelogics/TeaFiles.Py
 
 Tests
 =====
@@ -108,17 +111,14 @@ Python 2.7 / 3.2
 Package tested under CPython 2.7.
 Python 3.2 planned
 
-
 Author
 ======
 This API brought to you by discretelogics, company specialicing in time series analysis and event processing.
-http://tbd
-
+http://www.discretelogics.com
 
 Version 0.7
 ===========
-The current version is reasonably tested by doctests and some pytests. Better test coverage with unit tests (currently pytest is used) 
-is desirable.
+The current version is reasonably tested by doctests and some pytests. Better test coverage with unit tests (currently pytest is used) is desirable.
 
 tbd towards version 1.0
     - enhance pytest coverage
@@ -126,8 +126,7 @@ tbd towards version 1.0
     - cleaner test runs, cleanup test files
 
 optional
-    - enhance performance after measuring it in python 3 (maybe struct module plays a minor role there)
-
+    - enhance performance after measuring it in python 3 (struct module could play a crucial role, so results might differ considerably)
 
 License
 =======
@@ -136,4 +135,4 @@ This package is released under the GNU GENERAL PUBLIC LICENSE, see License.txt.
 
 Feedback
 ========
-Welcome at: pythonapi@discretelogics.com
+Welcome at: office@discretelogics.com
