@@ -128,7 +128,7 @@ open points towards version 1.0
 
 License
 -------
-This package is released under the GNU GENERAL PUBLIC LICENSE, see License.txt.
+This package is released under the MIT LICENSE.
 
 
 Feedback
