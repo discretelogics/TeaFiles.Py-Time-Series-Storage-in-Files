@@ -52,7 +52,7 @@ Python API Examples
 
 TeaFiles
 --------
-Find more about TeaFiles at http://www.discretelogics.com/products/teafiles
+Find more about TeaFiles at http://www.discretelogics.com/teafiles
 
 
 Documentation
