@@ -106,10 +106,10 @@ Run the unit tests from the package root by
 $ python -m pytest .\test
 
 
-Python 2.7 / 3.2
+Python 2.7 / 3.7
 ----------------
 Package tested under CPython 2.7.
-Python 3.2 planned
+A Python 3.7 version is here: https://github.com/nikhgupta/TeaFiles.Py
 
 Author
 ------
